@@ -1,7 +1,21 @@
 body{
-	/*background: url('http://stylonica.com/wp-content/uploads/2014/04/hd-wallpapers-lion-face-clean-site-wallpaper.jpg');
-	*/
-
-
+	background: #191919;
 }
 
+.row{
+	max-width: 100.0rem;
+}
+
+.column, .columns {
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+h1{
+	color: #FFF056;
+	font-family: 'Lato';
+}
+
+.screeninfo{
+	margin-bottom: 0;
+}
