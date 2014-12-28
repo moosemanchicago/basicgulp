@@ -1,0 +1,48 @@
+body{
+	background: white;
+	color: white;
+}
+
+.off-canvas-wrap.move-right,
+.off-canvas-wrap.move-left,
+.left-off-canvas-menu{
+	height: 265px;
+}
+
+.logo{
+	padding: 1.25rem;
+}
+
+.viewBrochure{
+	text-align: center;
+	padding: 1.25rem;
+}
+
+.pricing-table .title{
+	background: #8ea8c3;
+
+}
+.pricing-table .bullet-item{
+	text-align: left;
+}
+.pricing-table .greenHighlight{
+	background: #E6F7D4;
+}
+
+.footer{
+	background: #8ea8c3;
+}
+
+.footer .side-nav li{
+	float: right;
+}
+
+.footer .side-nav li a{
+	color: white;
+	border-bottom: 1px solid white;
+}
+
+.footer h2,
+.footer h3{
+	color: white;
+}
