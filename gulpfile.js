@@ -28,7 +28,7 @@ var target = {
         'js/app.js'
     ],
     js_uglify_src : [                                   // all js files that should not be concatinated
-        'js/modernizr.js'
+        //'js/vendor/modernizr.js'
     ],
     js_concat_src : [                                   // all js files that should be concatinated
         'js/app.js'
@@ -118,7 +118,7 @@ gulp.task('default', ['sass', 'js-lint', 'js-uglify', 'js-concat', 'browser-sync
     gulp.watch(target.js_lint_src, function() {
         gulp.run('js-lint');
     });
-    gulp.watch(target.js_minify_src, function() {
+    gulp.watch(target.js_uglify_src, function() {
         gulp.run('js-uglify');
     });
     gulp.watch(target.js_concat_src, function() {
