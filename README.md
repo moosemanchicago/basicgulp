@@ -1,7 +1,9 @@
 basicgulp
 =========
 
-Basic Gulp Development Environment - with browser-sync and some other good stuff.
+Basic Gulp Web Development Environment - includes Foundation framework, browser-sync, HTML injection, concat/minifying, OS notify, linting, and some other good stuff.
+
+http://www.moosecodes.com
 
 Mustafa R Ishaq 2014
 
