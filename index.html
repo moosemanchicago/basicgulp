@@ -9,51 +9,43 @@
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" type="text/css" href="js/vendor/slick/slick.css"/>
 
-    <link href='http://fonts.googleapis.com/css?family=Lato&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'><!-- TODO:  This needs to be imported locally -->
+    <link href='http://fonts.googleapis.com/css?family=Lato&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <!-- TODO:  Fonts need to be imported locally -->
 
     <script src="js/vendor/modernizr.js"></script><!-- modernizr.js must stay in the head -->
   </head>
   <body>
   
-  <div data-alert class="screeninfo alert-box radius">
-      <span class="show-for-small-only">small screen.</span>
+  <div data-alert class="hide screeninfo alert-box radius">
+      <span class="show-for-small-only">viewing on a small screen.</span>
       <!-- <span class="show-for-medium-up">This text is shown on medium screens and up.</span> -->
-      <span class="show-for-medium-only">medium screen.</span>
+      <span class="show-for-medium-only">viewing on a medium screen.</span>
       <!-- <span class="show-for-large-up">This text is shown on large screens and up.</span> -->
-      <span class="show-for-large-only">large screen.</span>
+      <span class="show-for-large-only">viewing on a large screen.</span>
       <!-- <span class="show-for-xlarge-up">This text is shown on xlarge screens and up.</span> -->
-      <span class="show-for-xlarge-only">xlarge screen.</span>
+      <span class="show-for-xlarge-only">viewing on a xlarge screen.</span>
       <!-- <span class="show-for-xxlarge-up">This text is shown on xxlarge screens and up.</span> -->
     <a href="" class="close">×</a>
   </div>
 
-  <div class="row header">
-    <div class="small-12 columns">
-      <h1 class="right">moosecodes</h1>
-    </div>
-  </div>
-  
   <div class="row main-image">
-      <div class="slick row show-for-small-up">
-        <div class="medium-12 columns"><a href="#"><img src="img/1.jpg" /></a></div>
-        <div class="medium-12 columns"><a href="#"><img src="img/2.jpg" /></a></div>
-        <div class="medium-12 columns"><a href="#"><img src="img/3.jpg" /></a></div>
-        <div class="medium-12 columns"><a href="#"><img src="img/4.jpg" /></a></div>
-        <div class="medium-12 columns"><a href="#"><img src="img/5.jpg" /></a></div>
-        <div class="medium-12 columns"><a href="#"><img src="img/6.jpg" /></a></div>
-        <div class="medium-12 columns"><a href="#"><img src="img/7.jpg" /></a></div>
-        <div class="medium-12 columns"><a href="#"><img src="img/8.jpg" /></a></div>
-        <div class="medium-12 columns"><a href="#"><img src="img/9.jpg" /></a></div>
-        <div class="medium-12 columns"><a href="#"><img src="img/10.jpg" /></a></div>
-        <div class="medium-12 columns"><a href="#"><img src="img/11.jpg" /></a></div>
-      </div>
+      <img data-interchange="[img/2.png, (default)], [img/1.png, (medium)]">
   </div>
 
-  <div class="row body">
+  <div class="row solid-bar">
     <div class="small-12 columns">
       <h1>moosecodes</h1>
     </div>
   </div>
+
+    <div class="slick row show-for-small-up">
+        <div class="medium-12 columns"><a href="#"><img data-interchange="[img/3.png, (default)], [img/3.png, (medium)]"></a></div>
+        <div class="medium-12 columns"><a href="#"><img data-interchange="[img/4.png, (default)], [img/4.png, (medium)]"></a></div>
+     
+    </div>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/slick/slick.min.js"></script>

@@ -11,11 +11,42 @@ body{
     padding-right: 0rem;
 }
 
-h1{
-	color: #FFF056;
-	font-family: 'Lato';
+
+.main-image{
+	max-height: 1123px;
+	overflow: hidden;
+	
+	height: 0;
+
+	background: none;/*
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;*/
+	padding: 0% 0% 30%;
 }
 
 .screeninfo{
 	margin-bottom: 0;
 }
+
+.solid-bar{
+		user-select: none;  
+		background: #FFF056;
+		cursor: pointer;
+		h1{
+			color: #191919;
+			margin-left: 15px;
+			font-family: 'Indie Flower', cursive;
+			font-weight: bold;
+			transform:translateX(0px);
+			transition:all .2s ease-in;
+		}
+}
+
+.solid-bar:hover h1{
+	user-select: none;  
+	transform:translateX(30px);
+	transition:all .2s ease-in;
+}
+
+
