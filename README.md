@@ -9,6 +9,9 @@ Mustafa R Ishaq 2014
 
 MIT License - so use it!
 
+Usage: After you clone the repository, cd into the folder "basicgulp" and run 'npm install'.
+       When 'npm install' is completed you may run 'gulp'.
+       
 ** Note: This was developed on a Macbook Pro on OS X Yosemite.
 
 ** Note: If you are installing node.js onto your Windows 7 machine,
