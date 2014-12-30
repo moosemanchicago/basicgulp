@@ -1,3 +1,70 @@
+@font-face {
+  font-family: 'LatoRegular';
+  src: url('../fonts/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IndieFlower';
+  src: url('../fonts/IndieFlower.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bangers';
+  src: url('../fonts/Bangers.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'CherryCreamSoda';
+  src: url('../fonts/CherryCreamSoda.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Meddon';
+  src: url('../fonts/Meddon.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NovaMono';
+  src: url('../fonts/NovaMono.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'CodystarRegular';
+  src: url('../fonts/Codystar-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AlexBrushRegular';
+  src: url('../fonts/AlexBrush-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PlayBold';
+  src: url('../fonts/Play-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PlayRegular';
+  src: url('../fonts/Play-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ShojumaruRegular';
+  src: url('../fonts/Shojumaru-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SigmarOne';
+  src: url('../fonts/SigmarOne.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Aclonica';
+  src: url('../fonts/Aclonica.ttf') format('truetype');
+}
+
+
+
 body{
 	background: #191919;
 }
@@ -36,7 +103,7 @@ body{
 		h1{
 			color: #191919;
 			margin-left: 15px;
-			font-family: 'Indie Flower', cursive;
+			font-family: 'IndieFlower', cursive;
 			font-weight: bold;
 			transform:translateX(0px);
 			transition:all .2s ease-in;
