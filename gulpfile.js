@@ -19,6 +19,14 @@ var gulp         = require('gulp');                      // gulp core
 
 var target = {
     
+<<<<<<< HEAD
+    sass_source      : '_dist/_scss/**/*.scss',            // all sass files
+    css_dest         : '_dist/_css',                       // where to put minified css
+    js_lint_source   : ['_dist/_js/app.js'],               // all js that should be linted
+    js_uglify_source : ['_dist/_js/modernizr.js'],         // all js files that should not be concatinated
+    js_concat_source : ['_dist/_js/app.js'],               // all js files that should be concatinated
+    js_destination   : '_dist/_js'                         // where to put minified js
+=======
     sass_source : '_dist/_scss/**/*.scss',                // all sass files
     
     css_dest : '_dist/_css',                               // where to put minified css
@@ -34,10 +42,9 @@ var target = {
         //'_dist/_js/app2.js'
     ],
     js_destination : '_dist/_js'                           // where to put minified js
+>>>>>>> a5c657a964941227f9aa36873825f31401337518
 
 };
-
-
 
 // 3. SASS TASK
 
@@ -57,6 +64,7 @@ gulp.task('sass', function() {
         .pipe(gulp.dest(target.css_dest))               // where to put the file
         .pipe(notify({message: 'SCSS processed!'}));    // notify when done
 });
+
 
 
 // 4. JS TASKS
@@ -90,10 +98,7 @@ gulp.task('js-concat', function() {
         .pipe(notify({message: 'Minify & Concatinate'}));// notify when done
 });
 
-
-
 // 5. BROWSER SYNC
-
 
 gulp.task('browser-sync', function() {
     browserSync.use(htmlInjector, {});
@@ -102,10 +107,7 @@ gulp.task('browser-sync', function() {
     });
 });
 
-
-
 // 6. GULP TASKS
-
 
 gulp.task('default', ['sass', 'js-lint', 'js-uglify', 'js-concat', 'browser-sync'], function() {  
     gulp.watch("*.html", htmlInjector);
