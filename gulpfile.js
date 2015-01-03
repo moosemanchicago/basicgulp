@@ -19,31 +19,12 @@ var gulp         = require('gulp');                      // gulp core
 
 var target = {
     
-<<<<<<< HEAD
     sass_source      : '_dist/_scss/**/*.scss',            // all sass files
     css_dest         : '_dist/_css',                       // where to put minified css
     js_lint_source   : ['_dist/_js/app.js'],               // all js that should be linted
     js_uglify_source : ['_dist/_js/modernizr.js'],         // all js files that should not be concatinated
     js_concat_source : ['_dist/_js/app.js'],               // all js files that should be concatinated
     js_destination   : '_dist/_js'                         // where to put minified js
-=======
-    sass_source : '_dist/_scss/**/*.scss',                // all sass files
-    
-    css_dest : '_dist/_css',                               // where to put minified css
-    
-    js_lint_source : [                                    // all js that should be linted
-        '_dist/_js/app.js'
-    ],
-    js_uglify_source : [                                  // all js files that should not be concatinated
-        '_dist/_js/modernizr.js'
-    ],
-    js_concat_source : [                                  // all js files that should be concatinated
-        '_dist/_js/app.js'//,
-        //'_dist/_js/app2.js'
-    ],
-    js_destination : '_dist/_js'                           // where to put minified js
->>>>>>> a5c657a964941227f9aa36873825f31401337518
-
 };
 
 // 3. SASS TASK
