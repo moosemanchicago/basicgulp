@@ -6,14 +6,14 @@ var gulp = require('gulp');                             // gulp core
     sass = require('gulp-sass'),                        // sass compiler
     uglify = require('gulp-uglify'),                    // uglifies the js
     jshint = require('gulp-jshint'),                    // check if js is ok
-    rename = require("gulp-rename");                    // rename files
+    rename = require("gulp-rename"),                    // rename files
     concat = require('gulp-concat'),                    // concatinate js
     notify = require('gulp-notify'),                    // send notifications to osx
     plumber = require('gulp-plumber'),                  // disable interuption
     stylish = require('jshint-stylish'),                // make errors look good in shell
     minifycss = require('gulp-minify-css'),             // minify the css files
     browserSync = require('browser-sync'),              // inject code to all devices
-    htmlInjector = require("bs-html-injector");
+    htmlInjector = require("bs-html-injector"),
     autoprefixer = require('gulp-autoprefixer');        // sets missing browserprefixes
 
 
@@ -22,18 +22,22 @@ var gulp = require('gulp');                             // gulp core
 *******************************************************************************/
 
 var target = {
-    sass_src : 'scss/**/*.scss',                        // all sass files
-    css_dest : 'css',                                   // where to put minified css
-    js_lint_src : [                                     // all js that should be linted
-        'js/app.js'
+    
+    sass_source : '_dist/_scss/*.scss',                        // all sass files
+    
+    css_dest : '_dist/css',                                 // where to put minified css
+    
+    js_lint_source : [                                     // all js that should be linted
+        '_dist/_js/app.js'
     ],
-    js_uglify_src : [                                   // all js files that should not be concatinated
-        //'js/vendor/modernizr.js'
+    js_uglify_source : [                                   // all js files that should not be concatinated
+        '_dist/_js/modernizr.js'
     ],
-    js_concat_src : [                                   // all js files that should be concatinated
-        'js/app.js'
+    js_concat_source : [                                   // all js files that should be concatinated
+        '_dist/_js/app.js'
     ],
-    js_dest : 'js'                                      // where to put minified js
+    js_destination : '_dist/js'                             // where to put minified js
+
 };
 
 
@@ -42,7 +46,7 @@ var target = {
 *******************************************************************************/
 
 gulp.task('sass', function() {
-    gulp.src(target.sass_src)                           // get the files
+    gulp.src(target.sass_source)                           // get the files
         .pipe(plumber())                                // make sure gulp keeps running on errors
         .pipe(sass())                                   // compile all sass
         .pipe(autoprefixer(                             // complete css with correct vendor prefixes
@@ -65,30 +69,31 @@ gulp.task('sass', function() {
 
 // lint my custom js
 gulp.task('js-lint', function() {
-    gulp.src(target.js_lint_src)                        // get the files
+    gulp.src(target.js_lint_source)                        // get the files
         .pipe(jshint())                                 // lint the files
         .pipe(jshint.reporter(stylish))                 // present the results in a beautiful way
 });
 
 // minify all js files that should not be concatinated
 gulp.task('js-uglify', function() {
-    gulp.src(target.js_uglify_src)                      // get the files
+    gulp.src(target.js_uglify_source)                      // get the files
         .pipe(uglify())                                 // uglify the files
-        .pipe(rename(function(dir,base,ext){            // give the files a min suffix
-            var trunc = base.split('.')[0];
-            return trunc + '.min' + ext;
+        .pipe(rename(function(path){            // give the files a min suffix
+                path.dirname += "./js";
+                path.basename += "";
+                path.extname = ".min.js"
         }))
-        .pipe(gulp.dest(target.js_dest))                // where to put the files
-        .pipe(notify({ message: 'JS processed!'}));     // notify when done
+        .pipe(gulp.dest(target.js_destination))                // where to put the files
+        .pipe(notify({ message: 'That\'s Ugly!'}));     // notify when done
 });
 
 // minify & concatinate all other js
 gulp.task('js-concat', function() {
-    gulp.src(target.js_concat_src)                      // get the files
+    gulp.src(target.js_concat_source)                      // get the files
         .pipe(uglify())                                 // uglify the files
         .pipe(concat('scripts.min.js'))                 // concatinate to one file
-        .pipe(gulp.dest(target.js_dest))                // where to put the files
-        .pipe(notify({message: 'JS processed!'}));      // notify when done
+        .pipe(gulp.dest(target.js_destination))                // where to put the files
+        .pipe(notify({message: 'Minify & Concatinate'}));      // notify when done
 });
 
 
@@ -98,10 +103,8 @@ gulp.task('js-concat', function() {
 
 gulp.task('browser-sync', function() {
     browserSync.use(htmlInjector, {});
-    browserSync.init(['css/*.css', 'js/*.js'], {        // files to inject
-        server: {
-            baseDir: "./"
-        }
+    browserSync.init(['_dist/css/*.css', '_dist/js/*.js'], {        // files to inject
+        server: { baseDir: "./" }
     });
 });
 
@@ -110,18 +113,10 @@ gulp.task('browser-sync', function() {
 1. GULP TASKS
 *******************************************************************************/
 
-gulp.task('default', ['sass', 'js-lint', 'js-uglify', 'js-concat', 'browser-sync'], function() {
+gulp.task('default', ['sass', 'js-lint', 'js-uglify', 'js-concat', 'browser-sync'], function() {  
     gulp.watch("*.html", htmlInjector);
-    gulp.watch('scss/*.scss', function() {
-        gulp.run('sass');
-    });
-    gulp.watch(target.js_lint_src, function() {
-        gulp.run('js-lint');
-    });
-    gulp.watch(target.js_uglify_src, function() {
-        gulp.run('js-uglify');
-    });
-    gulp.watch(target.js_concat_src, function() {
-        gulp.run('js-concat');
-    });
+    gulp.watch('_dist/_scss/*.scss', function() { gulp.start('sass'); });
+    gulp.watch(target.js_lint_source, function() { gulp.start('js-lint'); });
+    gulp.watch(target.js_uglify_source, function() { gulp.start('js-uglify'); });
+    gulp.watch(target.js_concat_source, function() { gulp.start('js-concat'); });
 });
