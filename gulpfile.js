@@ -21,7 +21,7 @@ var target = {
     
     sass_source : '_dist/_scss/**/*.scss',                // all sass files
     
-    css_dest : '_dist/css',                               // where to put minified css
+    css_dest : '_dist/_css',                               // where to put minified css
     
     js_lint_source : [                                    // all js that should be linted
         '_dist/_js/app.js'
@@ -33,7 +33,7 @@ var target = {
         '_dist/_js/app.js'//,
         //'_dist/_js/app2.js'
     ],
-    js_destination : '_dist/js'                           // where to put minified js
+    js_destination : '_dist/_js'                           // where to put minified js
 
 };
 
@@ -73,7 +73,7 @@ gulp.task('js-uglify', function() {
     gulp.src(target.js_uglify_source)                   // get the files
         .pipe(uglify())                                 // uglify the files
         .pipe(rename(function(path){                    // give the files a min suffix
-                path.dirname += "./js";
+                path.dirname += "./_js";
                 path.basename += "";
                 path.extname = ".min.js"
         }))
@@ -97,7 +97,7 @@ gulp.task('js-concat', function() {
 
 gulp.task('browser-sync', function() {
     browserSync.use(htmlInjector, {});
-    browserSync.init(['_dist/css/**/*.css', '_dist/js/**/*.js'], {// files to inject
+    browserSync.init(['_dist/_css/**/*.css', '_dist/_js/**/*.js'], {// files to inject
         server: { baseDir: "./" }
     });
 });
